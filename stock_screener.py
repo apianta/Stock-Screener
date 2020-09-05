@@ -101,11 +101,12 @@ for stock in stocklist:
                 list(zip(final, index)), columns=['Company', 'Index'])
             dataframe.to_csv('stocks.csv')
 
-            exportList = exportList.append({'Stock': stock, 'RS_Rating': '50 Day MA': moving_average_50, '150 Day Ma': moving_average_150, '200 Day MA': moving_average_200, '52 Week Low': low_of_52week, '52 week High': high_of_52week}, ignore_index=True)
+            exportList = exportList.append({'Stock': stock, "RS_Rating": RS_Rating, "50 Day MA": moving_average_50, "150 Day Ma": moving_average_150,
+                                            "200 Day MA": moving_average_200, "52 Week Low": low_of_52week, "52 week High": high_of_52week}, ignore_index=True)
             print(stock + ' made the requirements')
     except Exception as e:
         print(e)
-        print('No data on "+ stock)
+        print("No data on " + stock)
 print(exportList)
 
 writer = ExcelWriter('ScreenOutput.xlsxs')
